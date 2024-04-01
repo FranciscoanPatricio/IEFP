@@ -1,0 +1,9 @@
+package exemplo2_inteiros;
+
+public class Exemplo2_inteiros {
+
+    public static void main(String[] args) {
+        int a = 2147483647;
+        System.out.println("O valor é" + a);
+    }
+}
