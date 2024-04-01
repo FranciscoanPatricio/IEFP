@@ -1,0 +1,23 @@
+package exemplo3_float;
+
+
+public class Exemplo3_float {
+    public static void main(String[] args) {
+        float y = 3.4e38f; // e equivale x 10^=3.1«3x10^38
+        System.out.println(y);
+        y = 45.7f;
+        int z = (int) y; // fazer um cast
+        System.out.println(z);
+        
+        double c;
+        c = 1.79e308;
+        //1.79769313486231570E+308
+        System.out.println(c);
+        
+        int a = 3;
+        int b = 2;
+        float quociente = (float) a/ (float) b;
+        System.out.println("quociente "+quociente);
+    }
+    
+}
