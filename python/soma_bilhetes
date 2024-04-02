@@ -1,0 +1,9 @@
+#Custo total dos bilhetes comprados
+
+
+precoBilhete = int(input("Insira o valor de cada bilhete: \n")) 
+quantidadeBilhete= int(input("Insira quantos bilhetes quer comprar: \n"))
+
+total = precoBilhete * quantidadeBilhete # faz o falor total de todos os bilhetees comprados
+
+print("O valor total pago por ", quantidadeBilhete, "bilhetes a ", precoBilhete, "€ cada é ", total, "€.")
