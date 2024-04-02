@@ -1,0 +1,13 @@
+#calcula a idade do utilizador
+
+import datetime 
+
+anoNascimento = int(input("Insira a data de nasicmento: \n"))
+
+#anoActual = int(input("Insira o anoa ctual: \n"))
+
+anoActual = datetime.date.today().year
+
+idade = anoActual - anoNascimento
+
+print(f"A sua idade é ou vai fazer {idade} anos.")
