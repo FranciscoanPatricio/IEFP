@@ -1,0 +1,7 @@
+#lista com produtos e o seu respectivo valor
+
+lista_vinho =  [['Porto', '4.5€'], ['Alentejano', '3.5€'], ['Douro', '2.8€']]
+
+for i in range (len(lista_vinho)):
+    #for j in range (len(lista[i][j])):
+    print("O vinho",  lista_vinho [i][0], "está a ", lista_vinho[i][1])
