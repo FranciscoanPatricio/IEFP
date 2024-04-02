@@ -1,0 +1,11 @@
+# criar a soma do valor dos  produtos
+
+precoCafe = float(input("Insira o valor do cafe: "))
+precoPao = float(input("Insira o valor do pao: "))
+precoAcucar= float(input("Insira o valor do acucar: "))
+
+somaTotal = precoAcucar + precoCafe + precoPao
+
+
+print("O café vale: ", precoCafe, "€.\n", "O pao vale: ", precoPao, "€.\n", "O preco do açucar é: ", precoAcucar, "€.\n")
+print("A soma dos produtos é ", round(somaTotal, 2) , "€.") # para por apenas duas casas decinais
