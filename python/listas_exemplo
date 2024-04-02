@@ -1,0 +1,11 @@
+#lista em python
+
+numeros = [1,2,3,4,5,6]
+print(numeros)
+
+for i in range(len(numeros)): 
+    print(numeros [i])
+
+
+#for j in range (6): 
+ #   print(numeros [j], "\t")
