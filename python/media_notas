@@ -1,0 +1,10 @@
+nota1 = (int(input("Insira a nota")))
+nota2 = (int(input("Insira a nota")))
+nota3 = (int(input("Insira a nota")))
+
+media = (nota1 + nota2 + nota3)/3
+
+if media >=15:
+    print(f"A sua media foi {media} e aluna foi aprovada.")
+else:
+    print(f"A sua media foi {media} e foi reprovada.")
