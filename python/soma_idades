@@ -1,0 +1,8 @@
+# A soma da idade do Paulo e da Mariana
+
+
+idadeMariana = int(input ("Insira a idade da Mariana:  ")) 
+idadePaulo = int(input ("Insira a idade do Paulo: "))
+
+idadeSoma = idadeMariana + idadePaulo
+print ("A soma das idades é: ", idadeSoma, "anos.")
