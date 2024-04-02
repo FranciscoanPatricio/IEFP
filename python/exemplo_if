@@ -1,0 +1,9 @@
+# verificar se o condutor tem 18 anos.
+
+idade = (int(input("Indique a  sua idade: ")))
+
+
+if idade <18:
+    print("Não pode coduzir")
+else:
+    print("Pode conduzir")
