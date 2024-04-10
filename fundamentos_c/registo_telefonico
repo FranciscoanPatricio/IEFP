@@ -1,0 +1,5 @@
+#include <stdio.h>
+int main(){
+  FILE * registo;
+  registo = fopen("registo", "w");
+  while(fgets(linhas, 100, registo)){}
