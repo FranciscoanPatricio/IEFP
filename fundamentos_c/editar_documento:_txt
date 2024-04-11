@@ -1,0 +1,139 @@
+/* Criar um programa que permita editar texto num ficheiro txt.
+1)Inserir texto
+2)Consultar texto
+3)Contar quantas letras estão no ficheiro
+4)Contar quantas palavras estão no ficheiro
+%)Consultar o texto no ficheiro*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void limparConsola(){
+    printf("\n[1;1H\e[2J");
+}
+
+void inserirTexto(){
+    limparConsola();
+    fflush(stdin);
+    char texto [100];
+    int point_counter=0;
+    while(1){
+        printf("Insira o texto a inserir:\n");
+        //scanf("%[^\n]", texto);  // vê até encontrar uma nova linha
+        fgets(texto, sizeof(texto), stdin);
+        for (int i=0;i<100;i++){
+            if(texto[i]=='.'/* texto[i]=='?'texto[i]=='!' */){
+                point_counter++;
+                break;
+            }  
+        }
+        if(point_counter>0){
+            break;
+        }
+    }
+
+    FILE*text;
+    text = fopen("texto.txt", "w");
+    fprintf(text," %s", texto);
+    fclose(text);
+}
+
+int contarLetras(){
+    limparConsola();
+    FILE*text;
+    int temp = 0;
+    char linha[100];
+    text=fopen("texto.txt", "r");
+   
+    while(fgets(linha, 100, text)){
+        for (int i=0;i<100;i++){
+            if (linha[i]!=' '){
+                temp++;
+                if(linha[i]=='.'){
+                    break;
+                }
+            }
+        }
+    }
+    return temp;
+    fclose(text);
+}
+
+int contarPalavras(){
+    limparConsola();
+    FILE*text;
+    int temp=0;
+    char linha[100];
+    text=fopen("texto.txt", "r");
+
+    while(fgets(linha, 100, text)){
+        for (int i=0;i<100;i++){
+            if (linha[i]=='.'){
+                break;
+            }
+            if (linha[i]==' '){
+                temp++;
+            }
+        }
+    }
+    return temp;
+    fclose(text);
+}
+
+void apagarConteudo(){
+    limparConsola();
+    FILE * text;
+    text=fopen("texto.txt", "w");
+    fprintf(text, "");
+    fclose(text);
+}
+
+int consultarTexto(){
+    
+    FILE * text;
+    text = fopen("texto.txt", "r");
+    char linha [100];
+    while(fgets(linha, 100, text)){
+        printf("%s", linha);
+    }
+    fclose(text);
+}
+void imprimeMenu(){
+    int opcao;
+    printf("1) inserir texto 2)Consultar texto 3)contar letras 4) contar palavras 5)Apagar conteudo do ficheiro 6)sair\n");
+    printf("Escolha uma opção\n");
+    scanf("%i", &opcao);
+    
+    switch (opcao){
+    case 1:
+        inserirTexto();
+        break;
+    case 2:
+        limparConsola();
+        printf("O texto é: \n");
+        consultarTexto();
+        break;
+    case 3:
+        printf("O texto contem %d letras.\n", contarLetras()-1);
+        break;
+    case 4:
+        printf("O texto contem %d palavras.\n", contarPalavras());
+        break;
+    case 5:
+        apagarConteudo();
+        printf("O ficheiro foi limpo.\n");
+        break;
+    case 6:
+        exit(0);
+        break;
+    default:
+        limparConsola();
+        printf("Opção invalida. Escolha entre 1 e 3.\n");
+
+    }
+}
+int main (){
+    while(1){
+        imprimeMenu();
+    }
+}
