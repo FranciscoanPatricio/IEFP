@@ -1,0 +1,181 @@
+/*Criar um registo de usuarios com nome e idade;
+1)criar um registo no ficheiro txt;
+Podendo carregar tudo que está no ficheiro para a memoria do computador
+2)Consultar menores de idade
+3)Consultar maiores de Idade
+4)Consultar reformados
+*/
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+struct Registo{
+    char nome[20];
+    int idade;
+};
+
+struct Registo registros[100];
+
+//limpar a consola de inputs
+void limparConsola(){ 
+    printf("\n[1;1H\e[2J");
+}
+
+//função para separar os dados consultados e os menus.
+void separadorMenu(){ 
+    printf("                                   \n");
+    printf("-----------------------------------\n");
+    printf("                                   \n");
+}
+
+//Carregar os dados do ficheiro para a memória do computador.
+void carregarDados(struct Registo *registros){ 
+    FILE * flpr;
+    flpr = fopen("registoDados.txt", "r");
+    char linha[100];
+    int posicaoEspaco, posicaoFim;
+    int i=0;
+    
+    while(fgets(linha, 100, flpr)){
+        posicaoEspaco = strchr(linha, ' ')-linha;
+        strncpy (registros[i].nome,linha, posicaoEspaco);
+        registros[i].nome[posicaoEspaco]='\0';
+        registros[i].idade = atoi(linha+posicaoEspaco+1) ;
+        //printf("%s\t%d\n",  registros[i].nome, registros[i].idade);    teste memoria    
+        i++;
+        }
+    fclose(flpr);
+}
+
+//Inserir os dados no ficheiro.
+void inserirDados(){
+    limparConsola();
+    FILE * flpr;
+    flpr = fopen("registoDados.txt", "a");
+    char nome[20], idade[3];
+    char seguinte;
+
+    while(1){
+        printf("Insira o nome a introduzir: \n");
+        scanf("%s", nome);
+        printf("Insira a idade: \n");
+        scanf("%s", idade);
+        printf("Quer introduzir mais dados?\n1)S\n2)N\n");
+        fflush(stdin);
+        scanf("%c", &seguinte);
+        fprintf(flpr, "%s %s\n", nome, idade);
+        if (seguinte=='N'||seguinte=='n'){
+            limparConsola();
+            fclose(flpr);
+            break;
+        }
+    }
+    fclose(flpr);
+    separadorMenu();
+}
+
+//Vai consultar os utilizadores menores de idade.
+void consultarMenorIdade(){
+    limparConsola();
+    carregarDados(registros); 
+    char menores[100][100];
+    int count=0;
+    
+    for(int i=0; i<100;i++){
+        if(strcmp(registros[i].nome,"")== 0){
+            break;
+        }
+        if(registros[i].idade <18){
+            strcpy(menores[count], registros[i].nome);
+            count++;
+        }
+    }
+    printf("Existem %d pessoas registadas menores de idade.\nSão os seguintes: \n", count);
+    for(int i=0;i<count;i++){
+        printf("%s\n", menores[i]);
+    }
+    separadorMenu();
+}
+
+//Consultar os utilizadores com maior de idade
+void consultarMaiorIdade(){
+    limparConsola();
+    carregarDados(registros);
+    char maiores[100][100];
+    int count=0;
+
+    for(int i=0;i<100;i++){
+        if(strcmp(registros[i].nome, "")==0){ //compara os valores ascII, se forem iguais dá 0, se for maior da 1, menor -1)
+            break;
+        }
+        if(registros[i].idade>17){
+            strcpy(maiores[count], registros[i].nome);
+            count++;
+        }
+        }
+    fflush(stdin);
+    printf("Existem %d pessoas registadas maiores de idade.\nSão os seguintes: \n", count);
+    for(int i=0;i<count;i++){
+            printf("%s\n", maiores[i]);
+    }
+   separadorMenu(); 
+}
+
+//consultar utilizadores reformdos
+void consultarReformado(){
+    limparConsola();
+    carregarDados(registros);
+    char reformados[100][100];
+    int count =0;
+
+    for(int i=0;i<100;i++){
+        if(strcmp(registros[i].nome,"")==0){
+            break;
+        }
+        if(registros[i].idade>65){
+            strcpy(reformados[count], registros[i].nome); // strcpy(destino, inicial)
+            count++;
+        }
+    }
+    printf("Existem %d pessoas registadas reformadas.\nSão os seguintes: \n", count);
+        for(int i=0;i<count;i++){
+            printf("%s\n", reformados[i]);
+        }
+        separadorMenu();
+}
+
+//imrpime menu
+void menu(){
+    int option;
+    printf("Escolha uma opção: \n");
+    printf("1)Inserir dados\n2)Mostra utilizadores com menor de Idade\n3)Mostra utilizadores com maior de Idade\n4)Mostra utilizadores reformados\n5)Sair\n");
+    scanf("%d", &option);
+   
+    switch(option){
+        case 1:
+            inserirDados();
+            break;
+        case 2:
+            consultarMenorIdade();
+            break;
+        case 3:
+            consultarMaiorIdade();
+            break;
+        case 4: 
+            consultarReformado();
+            break;
+        case 5:
+            exit(0);
+        default:
+            printf("Escolha uma das opções válidas.");
+    }
+}
+
+
+int main(){
+     while(1){
+        menu();
+    }
+}
+
