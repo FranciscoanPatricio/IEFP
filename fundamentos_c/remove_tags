@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+int main (){
+    FILE * flpr;
+    flpr = fopen("index.txt", "r");
+    char linha[100];
+    int placeSmaller=0, placeBigger=0, placeEnd=0, startSearch=0;
+
+
+    while(fgets(linha, 100, flpr)){
+        placeSmaller= placeEnd + 1; 
+        for(int i=0;i<100;i++){
+            if(linha[i+placeSmaller]=='>'){
+                placeBigger=i;
+                printf("%d", i);
+            }   
+            if(linha[i+placeBigger]=='<'){
+                placeSmaller=i;
+            }
+            if(linha[i+placeSmaller]=='\0'){
+                placeEnd=i;
+            }
+            for(int k =placeBigger;k<placeSmaller;k++){
+                printf("%s", linha[k]);
+            }
+        }
+    }
+    return 0;
+}
