@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main(){
+    int curVelocity;
+    int maxVelocity;
+    int difVelocity;
+
+     printf("Insira a velocidade máxima permitida: \n");
+    scanf("%i", &maxVelocity);
+
+    printf("Insira a velocidade que o condutor circulava: \n");
+    scanf("%d", &curVelocity); 
+
+    
+    
+    if (curVelocity<0){
+        printf("A velocidade do veiculo está incorreta.\n");
+    }else{
+        difVelocity = curVelocity - maxVelocity;
+
+        if (difVelocity< 10){
+            printf("A coima é de 0€ pois vinha acima de %i km do que era permitido.\n", difVelocity);
+        }else if (difVelocity<25){
+            printf("A coima é de 50€ pois vinha cima de %i km do que era permitido.\n", difVelocity);
+        }else {
+            printf("A coima +e de 150€ pois vinha acima de %i km do que era permitido.\n", difVelocity);
+        }
+    }
+    return 0;
+}
