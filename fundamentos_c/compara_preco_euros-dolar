@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main(){
+/*
+Comparador de preços. Este programa deve permitir comparar o preço de um produto na 
+europa vs nos Estados Unidos e indicar ao utilizador onde é mais barato ou se custa o 
+mesmo. O programa recebe de entrada o preço em EUR e o preço em USD. Considere a taxa de câmbio atual.*/
+    float euro;
+    float usd;
+    float taxa = 1.0823;
+    float temp;
+
+    printf("Insira o valor em euros: \n");
+    scanf("%f", &euro);
+    printf("Insira o valor em dolares: \n");
+    scanf("%f", &usd);
+
+    temp =  usd / taxa;
+    printf("%f", temp);
+    if (temp > euro){
+        printf("O produto é mais barato na europa.\n");
+    }else if(temp < euro){
+        printf("O produto é mais barato nos estados unidos.\n");
+    }else{
+        printf("O produto tem o mesmo preço.");
+    }
+    return 0;
+}
