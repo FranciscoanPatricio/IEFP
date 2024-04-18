@@ -1,0 +1,82 @@
+#include <stdio.h>
+
+//fazer uma função e respectivo testes;
+// fyuncao que recebe tres numeros e devolve o menor dos tres;
+//funçao que recebe um numero e use um expoente e devolve a potencia
+//funao que recebe x1, y1, x2, y2 e devolve a distancia entre ambos raiz  de um vez o outro
+//funcao que compara dois numeros e devolve -1 se o A<b , 0 se for igual e 1 se a>n
+// funcao que devolve o imc
+
+
+int menor (int number, int number2){
+    
+    for (int i=0;i<3; i++){
+        number = input (number);
+        if(i ==0){
+            number2 = number;
+        }
+        if (number<number2){
+            number2 = number;
+        }
+    }
+    return number2;
+}
+
+int input(int x){
+    printf("Insira o numero: \n");
+    scanf("%i", &x);
+    return x;
+}
+
+int inputPotencia(int x){
+    printf("Insira o expoente: \n");
+    scanf("%i", &x);
+    return x;
+}
+
+
+int menor (int number, int number2){
+    
+    for (int i=0;i<3; i++){
+        number = input (number);
+        if(i ==0){
+            number2 = number;
+        }
+        if (number<number2){
+            number2 = number;
+        }
+    }
+    printf("O menor numero é %i", number2);
+}
+
+int input(int x){
+    printf("Insira o numero: \n");
+    scanf("%i", &x);
+    return x;
+}
+
+int inputPotencia(int x){
+    printf("Insira o expoente: \n");
+    scanf("%i", &x);
+    return x;
+}
+
+
+int main(){
+    int a, b, c, d;
+    int numeroMenor = menor(a,b);
+    printf("%i", numeroMenor);
+
+    int total =1;
+
+    int number = input(c);
+    int number2 = inputPotencia(d);
+
+    for (int i=0; i<number2;i++){
+         total = number * total;
+        printf("%i", total);
+    }
+    printf("%i", total);
+
+    return 0;
+}
