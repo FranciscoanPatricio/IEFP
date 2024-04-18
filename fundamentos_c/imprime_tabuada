@@ -1,0 +1,37 @@
+//imprime tabuada, pede ao utilizador em que número começa e qual o numero para fazer a tabuada
+
+#include <stdio.h>
+
+int printTabuada(int num, int tabuadaComeco, int tabuadaFim){//função imprime a tabuada
+    for (int i=tabuadaComeco;i<=tabuadaFim;i++){
+        printf("%i X %i = %i\n", i, num, i*num);
+    }
+}
+
+int userInput(int input){//função pede input do utilizador
+    printf("Insira o numero: \n");
+    scanf("%i", &input);
+    return input;
+}
+
+int comeco(int inputComeco){
+    printf("Insira o começo: \n");
+    scanf("%i", &inputComeco);
+    return inputComeco;
+}
+int fim(int inputFim){
+    printf("Insira o fim: \n");
+    scanf("%i", &inputFim);
+    return inputFim;
+}
+    
+int main(){
+
+    int number, imprimir, input, inputFim, inputComeco, tabuadaComeco, tabuadaFim; 
+
+    number = userInput(input); // chama o input
+    tabuadaComeco = comeco(inputComeco);
+    tabuadaFim = fim (inputFim);
+    imprimir = printTabuada(number, tabuadaComeco, tabuadaFim); //chama a impressão da tabuada
+    return 0;
+}
