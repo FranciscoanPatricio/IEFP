@@ -1,0 +1,75 @@
+/* Desenvolva um programa em C que apresente um menu com as seguintes opções:
+Calcular a média de dois números.
+Verificar se um número é primo.
+Sair do programa. 
+O programa deve solicitar ao utilizador que escolha uma opção e executar a 
+ação correspondente. Se o utilizador escolher a opção 1, ele deve inserir os 
+dois números e o programa deve calcular e imprimir a média. Se escolher a opção 2, 
+ele deve inserir um número e o programa deve verificar se é primo ou não. Se escolher 
+a opção 3, o programa deve encerrar. */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void text(){
+    printf("Insira um numero: \n");
+}
+
+void media (){
+    float number1, number2, media;
+    text();
+    scanf("%f", &number1);
+    text();
+    scanf("%f", &number2);
+
+    media = (number1 + number2)/2;
+
+    printf("A media de %.2f e %.2f é %.2f.\n\n",number1, number2,  media);
+}
+
+void primo(){
+    int number, count=0;
+
+    text();
+    scanf("%d", &number);
+    for(int i=1;i<=number;i++){
+        if(number%i==0){
+            count++;
+        }
+    }
+    if(count==2){
+        printf("O numero %d é primo.\n\n", number);
+    }else{
+        printf("O numero %d não é primo pois tem %d divisores.\n\n", number, count);
+    }
+}
+
+void menu(){
+    printf("Escolha uma opção: \n");
+    printf("1)Calcular a média de dois números.\n");
+    printf("2)Verificar se um número é primo.\n");
+    printf("3)Sair do programa. \n");
+
+    int option;
+    scanf("%d", &option);
+
+    switch(option){
+        case 1:
+            media();
+            break;
+        case 2:
+            primo();
+            break;
+        case 3:
+            exit(0);
+        default:
+            printf("Insira uma opção válida.\n");
+    }
+}
+
+int main(){
+    while(1){
+        menu();
+    }
+    return 0;
+}
