@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main(){
+    int month;
+
+    printf("Insira o mês em númerico: \n");
+    scanf("%i", &month);
+
+    if(month == 1){
+        printf("O mês é Janeiro!\n");
+    }else if(month == 2){
+        printf("O mês é Fevereiro!\n");
+    }else if(month == 3){
+        printf("O mês é Março!\n");
+    }else if(month == 4){
+        printf("O mês é Abril!\n");
+    }else if(month == 5){
+        printf("O mês é Maio!\n");
+    }else if(month == 6){
+        printf("O mês é Junho!\n");
+    }else if(month == 7){
+        printf("O mês é Julho!\n");
+    }else if(month == 8){
+        printf("O mês é Agosto!\n");
+    }else if(month == 9){
+        printf("O mês é Setembro!\n");
+    }else if(month == 10){
+        printf("O mês é Outubro!\n");
+    }else if(month == 11){
+        printf("O mês é Novembro!\n");
+    }else if(month == 12){
+        printf("O mês é Dezembro!\n");
+    } else{
+        printf("O número não corresponde a nenhum mês!\n");
+    }
+
+    return 0;
+}
