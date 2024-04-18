@@ -1,0 +1,24 @@
+//pede um numero ao utilizador, e soma os pares com os pares e impares com os impares. A condição de saida é introduzir um numero maior que 1000
+
+#include <stdio.h>
+
+int main(){
+    int number=0, somaPares=0, somaImpares=0;
+
+    while(number <=1000){
+
+    printf("Insira o numero: \n");
+    scanf("%i", &number);
+    
+    if(number>1000){
+    printf("A soma dos pares é %i.\n", somaPares);
+    printf("A soma dos impares é %i.\n", somaImpares);
+    }
+    if (number%2==0){
+        somaPares +=number; 
+    }else{
+        somaImpares+=number;
+    }
+    }
+    return 0;
+}
