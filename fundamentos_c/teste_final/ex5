@@ -1,0 +1,11 @@
+//Crie um novo ficheiro de texto chamado "resultado.txt" e escreva no ficheiro "Acabei o módulo 0809!"
+
+#include <stdio.h>
+
+int main(){
+    FILE *ptr;
+    ptr= fopen("resultado.txt", "w");
+
+    fprintf(ptr, "Acabei o módulo 0809!");
+    return 0;
+}
