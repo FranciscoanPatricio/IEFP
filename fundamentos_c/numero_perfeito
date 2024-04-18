@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(){
+    int number, soma = 0;
+
+    printf("Insira o numero:\n");
+    scanf("%i", &number);
+
+    for ( int i = 1; i<number;i++){
+        if (number%i==0){
+            soma += i;
+        }
+    }
+    if(soma == number){
+        printf("O numero %i é perfeito\n", number);
+    }else{
+        printf("O numero %i não é perfeito\n", number);
+    }
+
+    return 0;
+}
+
