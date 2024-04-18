@@ -1,0 +1,25 @@
+//Pede ao utilizadr a distancia e o combustivel gasto e avaliar se gastou muito ou se foi adequado
+
+#include <stdio.h>
+
+int main(){
+    int km;
+    float gas;
+    float consuption;
+
+    printf("Insira a distância em quilómetros: \n");
+    scanf("%i", &km); // deveria ser float e não inteiro
+
+    printf("Insira a quantidade de combustivel gasta: \n");
+    scanf("%f", &gas);
+    
+    consuption= 100.0 * gas / km;
+
+    if(consuption > 5.5f ){//se quiser um float em vez de um double metemos o numero e depois um f 
+        printf("O consumo do carro é alto com %2.f L de consumo médio por 100kms.\n", consuption);
+    }else{ // em vez de else posso por return 0; e depois a outra linha pois cancela automaticamente(ver exemplo abaixo)
+            //
+        printf("O consumo do carro é adequado com %2.f L de consumo médio por 100kms.\n", consuption);
+    }
+    return 0;
+}
