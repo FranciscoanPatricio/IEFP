@@ -1,0 +1,30 @@
+//Desenvolva uma função em C chamada "max" que receba três inteiros como argumentos e retorne o maior.
+
+#include <stdio.h>
+
+void max(float x, float y, float z){
+    if(x>y && x>z){
+        printf("O número %.2f é o maior.\n",  x);
+    }else if(x<y && z<y){
+        printf("O número %.2f é o maior.\n", y);
+    }else{
+        printf("O número %.2f é o maior.\n", z);
+    }
+}
+
+void texto(){
+    printf("Insira um número: \n");
+}
+int main(){
+
+    float number1, number2, number3;
+
+    texto();
+    scanf("%f", &number1);
+    texto();    
+    scanf("%f", &number2);
+    texto();    
+    scanf("%f", &number3);
+    max(number1, number2, number3);
+    return 0;
+}
