@@ -32,3 +32,28 @@ void ler(const char * s1, char *s2){ //concatnear strings
         
 
 }
+//#include <stdio.h>
+
+//declaração de um método
+//primeiro paramentro é um apontador para char
+// segundo é uma constante de um apontador s2
+void desafio1(char *s1, const char*s2);
+
+
+int main(){
+    //Declaração de duas strings
+    char string1[80], string2[80]; 
+    //mosta mensagem no ecrã
+    printf("%s\n", "Escreva duas strings:");
+    //grava as  variavies um valor introduzido pelo utilizador
+    fgets(string1, 80, stdin); //le as duas strings
+    fgets(string2, 80, stdin);
+    desafio1(string1, string2);
+    printf("%s", string1);
+    return 0;
+}
+
+void desafio1(char * s1, const char * s2){ //concatnear strings
+    while(*s1)s1++;
+    for(;*s1++ = *s2++;); // mesma coisa que um while
+}
