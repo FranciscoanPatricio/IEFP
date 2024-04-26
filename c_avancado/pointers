@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+//declaração de um método
+//primeiro paramentro é um apontador para char
+// segundo é uma constante de um apontador s2
+void ler(const char *s1, char *s2);
+
+
+int main(){
+    //Declaração de duas strings
+    char string1[80], string2[80]; 
+    //mosta mensagem no ecrã
+    printf("%s\n", "Escreva uma string:");
+    //grava as  variavies um valor introduzido pelo utilizador
+    fgets(string1, 80, stdin); //le as duas strings
+    ler(string1, string2);
+    printf("%s", string2);
+    return 0;
+}
+
+int tamanho(const char * s){ // dá o tamanho da stringola 
+    int x;
+    for(x = 0; *s; s++)
+        ++x;
+        return x;
+}
+
+void ler(const char * s1, char *s2){ //concatnear strings
+    int tamanhos = tamanho(s1);
+    while(tamanhos)
+        for(;*s2++ = *s1++;); // mesma coisa que um while
+        
+
+}
